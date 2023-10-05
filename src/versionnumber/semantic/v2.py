@@ -2,7 +2,7 @@ __all__ = ["Version"]
 
 import re
 from functools import total_ordering
-from typing import Sequence, Union, Optional, Self, Any
+from typing import Sequence, Union, Optional, Any
 
 PreRelease = Sequence[Union[str, int]]
 BuildMetaData = Sequence[Union[str, int]]
@@ -64,7 +64,7 @@ class Version:
         return self._build_metadata
 
     @classmethod
-    def parse(cls, value: str, /) -> Self:
+    def parse(cls, value: str, /) -> "Version":
         match = REGEX_PATTERN.fullmatch(value)
         if match is None:
             raise ValueError(
