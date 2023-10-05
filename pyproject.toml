@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=65.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "versionnumber"
+version = "0.0.0a0.dev0"
+description = "A version number manipulation library"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Duy N. H. A.", email = "me@duynha.dev" }]
+keywords = ["Networking", "IP", "IPv4", "IPv6"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Documentation",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+
+[project.urls]
+homepage = "https://www.duynha.dev/projects/versionnumber"
+documentation = "https://readthedocs.org"
+repository = "https://github.com/"
+changelog = "https://github.com/"
+
+
+[project.optional-dependencies]
+lint = ["black", "flake8", "flake8-pyproject", "isort", "mypy", "pylint"]
+test = ["pytest"]
+build = ["build"]
+publish = ["twine"]
+develop = [
+    "versionnumber[lint]",
+    "versionnumber[test]",
+    "versionnumber[build]",
+    "versionnumber[publish]"
+]
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+atomic = true
+case_sensitive = true
+dedup_headings = true
+balanced_wrapping = true
+combine_as_imports = true
+include_trailing_comma = true
+multi_line_output = 3
+
+[tool.mypy]
+strict = true
+python_version = "3.9"
+mypy_path = "$MYPY_CONFIG_FILE_DIR/src"
+disallow_any_unimported = true
+check_untyped_defs = true
+
+[tool.flake8]
+extend_ignore = [
+    # Ignore "Whitespace before ':'" error because it conflicts with 'black'
+    # formatter.
+    "E203",
+]
+
+[tool.pylint]
+disable = [
+    # Ignore "consider-using-f-string" error because we uses different string
+    # formatting ways to achieve better code readability and consistent code
+    # formatting using 'black'.
+    "C0209",
+]
