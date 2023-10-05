@@ -1,0 +1,20 @@
+# Compiled bytecodes
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+
+# Mypy cache
+.mypy_cache/
+
+# Pytest cache
+.pytest_cache/
+
+# Test coverage report
+.coverage
+
+# Distribution / packaging artifacts
+build/
+dist/
+*.egg-info/
