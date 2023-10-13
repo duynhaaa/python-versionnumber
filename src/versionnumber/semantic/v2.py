@@ -18,6 +18,14 @@ REGEX_PATTERN = re.compile(
 
 @total_ordering
 class Version:
+    __slots__ = (
+        "_major",
+        "_minor",
+        "_patch",
+        "_pre_release",
+        "_build_metadata",
+    )
+
     def __init__(
         self,
         major: int,
