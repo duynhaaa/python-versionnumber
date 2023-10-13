@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "versionnumber"
-version = "0.0.0a0.dev0"
+version = "0.1.0"
 description = "A version number manipulation library"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.9"
